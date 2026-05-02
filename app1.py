@@ -1,15 +1,13 @@
 import streamlit as st
 import requests
 
-# -------------------------------
-# Setup: Spoonacular
-# -------------------------------
+#  Spoonacular
+
 API_KEY = "773933b2d1a64aa9851f9b6d5d28b2c2"
 BASE_URL = "https://api.spoonacular.com/recipes/findByIngredients"
 
-# -------------------------------
 # Page Config
-# -------------------------------
+
 st.set_page_config(
     page_title="Culinary Oracle",
     page_icon="🔮",
@@ -17,9 +15,8 @@ st.set_page_config(
     initial_sidebar_state="collapsed",
 )
 
-# -------------------------------
-# CSS Styling (with smaller fonts)
-# -------------------------------
+#  Styling
+
 st.markdown(
     """
     <style>
@@ -59,9 +56,8 @@ st.markdown(
     unsafe_allow_html=True,
 )
 
-# -------------------------------
 # App Header
-# -------------------------------
+
 st.markdown(
     """
     <div class="app-header">
@@ -72,22 +68,19 @@ st.markdown(
     unsafe_allow_html=True,
 )
 
-# -------------------------------
 # Inputs
-# -------------------------------
+
 ingredients = st.text_input(" -- Ingredients ", placeholder="e.g. chicken, rice, garlic")
 mood = st.selectbox("-- Mood ", ["Lazy 😴", "Romantic 💕", "Adventurous 🌍", "Healthy 🥦", "Comfort Food 🍲"])
 weather = st.selectbox("-- Weather ", ["Rain 🌧️", "Snow ❄️", "Sunny ☀️", "Cloudy ☁️", "Fog 🌁", "Wind 💨", "Frost 🧊"])
 
-# -------------------------------
 # Session State
-# -------------------------------
+
 if "history" not in st.session_state:
     st.session_state.history = []
 
-# -------------------------------
 # Creative Twist Generator
-# -------------------------------
+
 def generate_twist(mood, weather):
     twists = {
         "Healthy 🥦": {
@@ -103,9 +96,8 @@ def generate_twist(mood, weather):
     }
     return twists.get(mood, {}).get(weather, f"✨ Add a creative touch for {weather.lower()} days!")
 
-# -------------------------------
 # Summon Recipes
-# -------------------------------
+
 summoned = st.button("✨ Summon Recipes 🍴", use_container_width=True)
 
 if summoned:
@@ -171,10 +163,9 @@ if summoned:
             '<div class="twist-card"><div class="twist-text" style="color:#e67e22">Please enter some ingredients first! 📝</div></div>',
             unsafe_allow_html=True,
         )
-
-# -------------------------------
+        
 # History
-# -------------------------------
+
 if st.session_state.history:
     history_html = '<div class="history-section"><h3>📜 Past Recipes</h3>'
     for ing, rec, mood_h, weather_h, twist_h in reversed(st.session_state.history[-5:]):
