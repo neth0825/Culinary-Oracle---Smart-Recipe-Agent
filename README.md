@@ -1,2 +1,6 @@
 # Culinary-Oracle---Smart-Recipe-Agent
-Culinary Oracle is a Streamlit‑based AI recipe generator that creates personalized dishes using your ingredients, mood, and weather. It integrates the Spoonacular API and a creative twist engine to deliver unique, data‑driven recipes with an elegant mobile‑style interface.
+Culinary Oracle is a Streamlit‑based recipe generator that blends data science with creativity. The app lets users enter ingredients, select a mood, and choose the current weather to generate personalized dishes. Powered by the Spoonacular API, it not only suggests real recipes but also highlights which ingredients you already have and what extras are needed. To make the experience unique, Culinary Oracle adds a “creative twist” based on mood and weather, turning everyday cooking into something magical.
+
+The interface is designed with a mobile‑style aesthetic, featuring gradients, glassmorphism cards, and smooth animations for a modern look. A built‑in history section remembers your past recipes, so you can revisit them anytime. This project demonstrates how user context, external APIs, and custom UI design can be combined to create an engaging, interactive agent.
+
+To run the app, clone the repository, install the requirements, and launch with streamlit run app.py. A demo video is available as a YouTube Short, and all source code is included here for review. Culinary Oracle is both a technical showcase and a creative exploration of how data and design can enhance everyday tasks like cooking.
